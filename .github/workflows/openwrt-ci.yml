@@ -102,6 +102,14 @@ jobs:
           # CONFIG_TARGET_x86_64=y
           # CONFIG_TARGET_x86_64_Generic=y
           # EOF
+          
+          # 编辑 wndr3800 | wndr3800ch 固件:
+          cat >> .config <<EOF
+          CONFIG_TARGET_ar71xx=y
+          CONFIG_TARGET_ar71xx_generic=y
+          CONFIG_TARGET_ar71xx_generic_DEVICE_wndr3800=y
+          CONFIG_TARGET_ar71xx_generic_DEVICE_wndr3800ch=y
+          EOF
 
           # 固件压缩:
           # cat >> .config <<EOF
@@ -162,12 +170,22 @@ jobs:
           # CONFIG_PACKAGE_luci-app-wireguard=y
           # CONFIG_PACKAGE_luci-app-wrtbwmon=y
           # EOF
+          
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-app-adbyby-plus=y
+          CONFIG_PACKAGE_luci-app-frpc=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
+          EOF
 
           # LuCI主题:
           # cat >> .config <<EOF
           # CONFIG_PACKAGE_luci-theme-argon=y
           # CONFIG_PACKAGE_luci-theme-netgear=y
           # EOF
+          
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-theme-netgear=y
+          EOF
 
           # 常用软件包:
           # cat >> .config <<EOF
@@ -185,6 +203,11 @@ jobs:
           # # CONFIG_TARGET_IMAGES_PAD is not set
           # # CONFIG_VMDK_IMAGES is not set
           # EOF
+          
+          cat >> .config <<EOF
+          # CONFIG_TARGET_IMAGES_PAD is not set
+          # CONFIG_VMDK_IMAGES is not set
+          EOF
 
           # 
           # ========================固件定制部分结束========================
